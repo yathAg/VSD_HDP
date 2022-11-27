@@ -1,6 +1,9 @@
 # hardware_design_flow
 
-## Day 0 - Installing the required software
+## Index
+* [Chapter 0 - Getting the tools](#Day-0---Getting-the-tools)
+
+## Day 0 - Getting the tools]
 ### yosys
 ![spice_test](Resources/yosys.png)
 ### ngspice
