@@ -1,7 +1,9 @@
 # hardware_design_flow
-## yosys
+
+## Day 0 - Installing the required software
+### yosys
 ![spice_test](Resources/yosys.png)
-## ngspice
+### ngspice
 ![spice_test](Resources/ngspice.png)
-## opensta
+### opensta
 ![spice_test](Resources/opensta.png)
