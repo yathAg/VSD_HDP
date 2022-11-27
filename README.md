@@ -1,7 +1,7 @@
 # hardware_design_flow
 
 ## Index
-* [Chapter 0 - Getting the tools](#Day-0---Getting-the-tools)
+* [Day 0 - Getting the tools](#Day-0---Getting-the-tools)
 
 ## Day 0 - Getting the tools]
 ### yosys
