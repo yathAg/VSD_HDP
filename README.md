@@ -1,4 +1,4 @@
-# hardware_design_flow
+# VSD Hardware Design Program
 
 ## Index
 * [Day 0 - Getting the tools](#Day-0---Getting-the-tools)
