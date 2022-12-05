@@ -1,7 +1,12 @@
 # VSD Hardware Design Program
 
 ## Index
-* [Day 0 - Getting the tools](#Day-0---Getting-the-tools)
++ [Tools required during the project](#DTools-required-during-the-project)
++ [Chapter 1 - RTL DESIGN USING VERILOG WITH SKY130 TECHNOLOGY](#Chapter-1---RTL-DESIGN-USING-VERILOG-WITH-SKY130-TECHNOLOGY)
+    - [1.1 Simulation Using iverilog and gtkwave](#1.1-Simulation-Using-iverilog-and-gtkwave)
+    - [1.5 Flop Coding](#1.5-Flop-Coding)
+
+
 
 ## Tools required during the project
 ### yosys
@@ -58,22 +63,22 @@ gtkwave <file.vcd>
 ```
 ![](Resources/1-2.png)
 
-### 1.2 Logic sysnthesis using Yosys
+### 1.2 Logic synthesis using Yosys
 
-Logic synthesis defines converting the behavorial verilog code to an RTL code described using the vendor specific standard cells.<br />
+Logic synthesis defines converting the behavioral verilog code to an RTL code described using the vendor specific standard cells.<br />
 These standard cells are described in the .lib file. The design file and the lib file are the inputs to the synthesizer tool.
 
 ![](Resources/1-3.png)
 
-Yosys is a synthesiszer which produces the required rtl netlist, file which can again be verified using iverilog and gtkwave. <br/>
-Since the netlist is true dscription of the design the same testbench file can be used for the netlist. 
+Yosys is a synthesizer which produces the required rtl netlist, file which can again be verified using iverilog and gtkwave. <br/>
+Since the netlist is true description of the design the same testbench file can be used for the netlist. 
 
 ![](Resources/1-4.png)
 
-A .lib contains multiple varients of a logic gate as fast and slow cells are required to meet the SETUP and HOLD times respectively.
+A .lib contains multiple variants of a logic gate as fast and slow cells are required to meet the SETUP and HOLD times respectively.
 
 Faster cells drive more current using transistors to charge and discharge the capacitive load in a circuit.
-Fast cells have a low delap but consume more area and power due to wider transistors.
+Fast cells have a low delay but consume more area and power due to wider transistors.
 
 Steps for running Yosys are as follows
 
@@ -93,7 +98,13 @@ synth -top good_mux
 ```
 abc -liberty  ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
+5. Generate the verilog file using 
+```
+write_verilog -noattr good_mux_netlist.v
+```
+
 The output summary is shown as follows
+
 ![](Resources/1-5.png)
 
 
@@ -101,3 +112,51 @@ A flow chart containing the used cells and the wires can be seen using the `show
 
 ![](Resources/1-6.png)
 
+The `-noattr` switch generates a clean netlist file
+
+![](Resources/1-7.png)
+
+
+### 1.3 Understanding the .libs files
+
+Library name `sky130_fd_sc_hd__tt_025C_1v80`:
+   -`sky130_fd_sc_hd` : process namePVT variations
+   - `tt` - typical process from (slow, fast , typical) 
+   - `025C` - temperature1.5 Flop Coding 
+Hierarchical Synthesis considers and instantiates each module described in the design individually. The module may be optimized by the synthesizer using different gates while maintaining the same logic.Usually when a stacked PMOS can be replaced buy circuit with stacked NMOS the circuit will be more optimized.
+
+![](Resources/1-8.png)
+
+The `flatten` command synthesis the design as described and eliminates the sub modules.
+
+![](Resources/1-9.png)
+
+The sub modules can also be synthesized individually this has the following advantages
+- If the design contains repeated sub modules, they do not need to be synthesizer multiple times
+- Big designs can be broken down to small parts to reduce load on synthesizer 
+
+
+### 1.5 Flop Coding 
+
+**Why are flops required ?**
+
+Due to the propagation delay of combinational circuits the output has glitches. Flops between stages of combinational circuits make sure that there is a stable output and the glitches do not propagate.
+
+**Set and reset signals**
+
+To initialize the flop and have them in known state, set and reset signals are used to make the output 1 or 0 respectively 
+
+**Asynchronous and synchronous signals**
+
+asynchronous signals are independent of the clock and the output sigal is changed immediately whereas in synchronous signal it changes on the next clock signal.
+
+![](Resources/1-10.png)
+
+### 1.6 Flop Simulation
+
+**Asynchronous reset**
+![](Resources/1-11.png)
+**Asynchronous set**
+![](Resources/1-12.png)
+**Synchronous Reset**
+![](Resources/1-13.png)

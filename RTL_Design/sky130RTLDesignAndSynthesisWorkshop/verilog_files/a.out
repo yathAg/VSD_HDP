@@ -7,79 +7,82 @@
 :vpi_module "/usr/local/lib/ivl/vhdl_textio.vpi";
 :vpi_module "/usr/local/lib/ivl/v2005_math.vpi";
 :vpi_module "/usr/local/lib/ivl/va_math.vpi";
-S_0x55a2761f36f0 .scope module, "tb_good_mux" "tb_good_mux" 2 2;
+S_0x55ec9a999a30 .scope module, "tb_dff_syncres" "tb_dff_syncres" 2 3;
  .timescale -9 -12;
-v0x55a2762053a0_0 .var "i0", 0 0;
-v0x55a276205460_0 .var "i1", 0 0;
-v0x55a276205530_0 .var "sel", 0 0;
-v0x55a276205630_0 .net "y", 0 0, v0x55a276205230_0;  1 drivers
-S_0x55a2761f3880 .scope module, "uut" "good_mux" 2 9, 3 2 0, S_0x55a2761f36f0;
+v0x55ec9a9abc30_0 .var "clk", 0 0;
+v0x55ec9a9abcf0_0 .var "d", 0 0;
+v0x55ec9a9abdc0_0 .net "q", 0 0, v0x55ec9a9ab9c0_0;  1 drivers
+v0x55ec9a9abec0_0 .var "sync_reset", 0 0;
+S_0x55ec9a999bc0 .scope module, "uut" "dff_syncres" 2 10, 3 2 0, S_0x55ec9a999a30;
  .timescale 0 0;
-    .port_info 0 /INPUT 1 "i0";
-    .port_info 1 /INPUT 1 "i1";
-    .port_info 2 /INPUT 1 "sel";
-    .port_info 3 /OUTPUT 1 "y";
-v0x55a2761bc2b0_0 .net "i0", 0 0, v0x55a2762053a0_0;  1 drivers
-v0x55a2762050a0_0 .net "i1", 0 0, v0x55a276205460_0;  1 drivers
-v0x55a276205160_0 .net "sel", 0 0, v0x55a276205530_0;  1 drivers
-v0x55a276205230_0 .var "y", 0 0;
-E_0x55a2761bb7f0 .event edge, v0x55a276205160_0, v0x55a2762050a0_0, v0x55a2761bc2b0_0;
-    .scope S_0x55a2761f3880;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "async_reset";
+    .port_info 2 /INPUT 1 "sync_reset";
+    .port_info 3 /INPUT 1 "d";
+    .port_info 4 /OUTPUT 1 "q";
+o0x7fb4d4cae018 .functor BUFZ 1, C4<z>; HiZ drive
+v0x55ec9a9622b0_0 .net "async_reset", 0 0, o0x7fb4d4cae018;  0 drivers
+v0x55ec9a9ab830_0 .net "clk", 0 0, v0x55ec9a9abc30_0;  1 drivers
+v0x55ec9a9ab8f0_0 .net "d", 0 0, v0x55ec9a9abcf0_0;  1 drivers
+v0x55ec9a9ab9c0_0 .var "q", 0 0;
+v0x55ec9a9aba80_0 .net "sync_reset", 0 0, v0x55ec9a9abec0_0;  1 drivers
+E_0x55ec9a998fe0 .event posedge, v0x55ec9a9ab830_0;
+    .scope S_0x55ec9a999bc0;
 T_0 ;
-    %wait E_0x55a2761bb7f0;
-    %load/vec4 v0x55a276205160_0;
+    %wait E_0x55ec9a998fe0;
+    %load/vec4 v0x55ec9a9aba80_0;
     %flag_set/vec4 8;
     %jmp/0xz  T_0.0, 8;
-    %load/vec4 v0x55a2762050a0_0;
-    %assign/vec4 v0x55a276205230_0, 0;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0x55ec9a9ab9c0_0, 0;
     %jmp T_0.1;
 T_0.0 ;
-    %load/vec4 v0x55a2761bc2b0_0;
-    %assign/vec4 v0x55a276205230_0, 0;
+    %load/vec4 v0x55ec9a9ab8f0_0;
+    %assign/vec4 v0x55ec9a9ab9c0_0, 0;
 T_0.1 ;
     %jmp T_0;
-    .thread T_0, $push;
-    .scope S_0x55a2761f36f0;
+    .thread T_0;
+    .scope S_0x55ec9a999a30;
 T_1 ;
-    %vpi_call 2 17 "$dumpfile", "tb_good_mux.vcd" {0 0 0};
-    %vpi_call 2 18 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x55a2761f36f0 {0 0 0};
+    %vpi_call 2 18 "$dumpfile", "tb_dff_syncres.vcd" {0 0 0};
+    %vpi_call 2 19 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x55ec9a999a30 {0 0 0};
     %pushi/vec4 0, 0, 1;
-    %store/vec4 v0x55a276205530_0, 0, 1;
+    %store/vec4 v0x55ec9a9abc30_0, 0, 1;
     %pushi/vec4 0, 0, 1;
-    %store/vec4 v0x55a2762053a0_0, 0, 1;
+    %store/vec4 v0x55ec9a9abec0_0, 0, 1;
     %pushi/vec4 0, 0, 1;
-    %store/vec4 v0x55a276205460_0, 0, 1;
-    %delay 300000, 0;
-    %vpi_call 2 23 "$finish" {0 0 0};
+    %store/vec4 v0x55ec9a9abcf0_0, 0, 1;
+    %delay 3000000, 0;
+    %vpi_call 2 24 "$finish" {0 0 0};
     %end;
     .thread T_1;
-    .scope S_0x55a2761f36f0;
+    .scope S_0x55ec9a999a30;
 T_2 ;
-    %delay 75000, 0;
-    %load/vec4 v0x55a276205530_0;
+    %delay 10000, 0;
+    %load/vec4 v0x55ec9a9abc30_0;
     %inv;
-    %store/vec4 v0x55a276205530_0, 0, 1;
+    %store/vec4 v0x55ec9a9abc30_0, 0, 1;
     %jmp T_2;
     .thread T_2;
-    .scope S_0x55a2761f36f0;
+    .scope S_0x55ec9a999a30;
 T_3 ;
-    %delay 10000, 0;
-    %load/vec4 v0x55a2762053a0_0;
+    %delay 23000, 0;
+    %load/vec4 v0x55ec9a9abcf0_0;
     %inv;
-    %store/vec4 v0x55a2762053a0_0, 0, 1;
+    %store/vec4 v0x55ec9a9abcf0_0, 0, 1;
     %jmp T_3;
     .thread T_3;
-    .scope S_0x55a2761f36f0;
+    .scope S_0x55ec9a999a30;
 T_4 ;
-    %delay 55000, 0;
-    %load/vec4 v0x55a276205460_0;
+    %delay 113000, 0;
+    %load/vec4 v0x55ec9a9abec0_0;
     %inv;
-    %store/vec4 v0x55a276205460_0, 0, 1;
+    %store/vec4 v0x55ec9a9abec0_0, 0, 1;
     %jmp T_4;
     .thread T_4;
 # The file index is used to find the file name in the following table.
 :file_names 4;
     "N/A";
     "<interactive>";
-    "tb_good_mux.v";
-    "good_mux.v";
+    "tb_dff_syncres.v";
+    "dff_syncres.v";
