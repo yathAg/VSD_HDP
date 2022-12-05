@@ -166,7 +166,7 @@ asynchronous signals are independent of the clock and the output sigal is change
 ![](Resources/1-13.png)
 
 ### 1.6 Flop Synthesis
-
+during flop synthesis `dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib` is used to map the library containing the flop standard cells
 **Asynchronous reset**
 ![](Resources/1-14.png)
 **Asynchronous set**
@@ -176,7 +176,7 @@ asynchronous signals are independent of the clock and the output sigal is change
 
 ### 1.7 Optimizations in Synthesis 
 
-**optimization in multipliers**
+**optimization in multipliers**<br />
 ![](Resources/1-17.png)
 
 **3 Bit number multiplied by 9**
