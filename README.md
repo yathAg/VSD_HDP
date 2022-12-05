@@ -3,8 +3,8 @@
 ## Index
 + [Tools required during the project](#DTools-required-during-the-project)
 + [Chapter 1 - RTL DESIGN USING VERILOG WITH SKY130 TECHNOLOGY](#Chapter-1---RTL-DESIGN-USING-VERILOG-WITH-SKY130-TECHNOLOGY)
-    - [1.1 Simulation Using iverilog and gtkwave](#1.1-Simulation-Using-iverilog-and-gtkwave)
-    - [1.5 Flop Coding](#1.5-Flop-Coding)
+    - [11 Simulation Using iverilog and gtkwave](#1.1-Simulation-Using-iverilog-and-gtkwave)
+    - [15 Flop Coding](#1.5-Flop-Coding)
 
 
 
