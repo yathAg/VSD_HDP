@@ -4,8 +4,12 @@
 + [Tools required during the project](#DTools-required-during-the-project)
 + [Chapter 1 - RTL DESIGN USING VERILOG WITH SKY130 TECHNOLOGY](#Chapter-1---RTL-DESIGN-USING-VERILOG-WITH-SKY130-TECHNOLOGY)
     - [1.1 Simulation Using iverilog and gtkwave](#11-Simulation-Using-iverilog-and-gtkwave)
-    - [1.5 Flop Coding](#15-Flop-Coding)
-
+    - [1.2 Logic synthesis using Yosys](#12-Logic-synthesis-using-Yosys)
+    - [1.3 Understanding the .libs files](#13-Understanding-the-libs-files)
+    - [1.4 Flop Coding](#14-Flop-Coding)
+    - [1.5 Flop Simulation](#15-Flop-Simulation)
+    - [1.6 Flop Synthesis](#16-Flop-Synthesis)
+    - [1.7 Optimizations in Synthesis](#17-Optimizations-in-Synthesis)
 
 
 ## Tools required during the project
@@ -136,7 +140,7 @@ The sub modules can also be synthesized individually this has the following adva
 - Big designs can be broken down to small parts to reduce load on synthesizer 
 
 
-### 1.5 Flop Coding 
+### 1.4 Flop Coding 
 
 **Why are flops required ?**
 
@@ -152,7 +156,7 @@ asynchronous signals are independent of the clock and the output sigal is change
 
 ![](Resources/1-10.png)
 
-### 1.6 Flop Simulation
+### 1.5 Flop Simulation
 
 **Asynchronous reset**
 ![](Resources/1-11.png)
@@ -160,3 +164,21 @@ asynchronous signals are independent of the clock and the output sigal is change
 ![](Resources/1-12.png)
 **Synchronous Reset**
 ![](Resources/1-13.png)
+
+### 1.6 Flop Synthesis
+
+**Asynchronous reset**
+![](Resources/1-14.png)
+**Asynchronous set**
+![](Resources/1-15.png)
+**Synchronous Reset**
+![](Resources/1-16.png)
+
+### 1.7 Optimizations in Synthesis 
+
+**optimization in multipliers**
+![](Resources/1-17.png)
+
+**3 Bit number multiplied by 9**
+![](Resources/1-18.png)
+
