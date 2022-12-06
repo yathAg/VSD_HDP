@@ -230,4 +230,5 @@ Make sure to `flatten` designs with multiple submodules before running the optim
  ### 1.10 Unused sequential outputs optimization
 
 ![](Resources/1-33.png)<br /><br />
+---
 ![](Resources/1-34.png)<br /><br />
