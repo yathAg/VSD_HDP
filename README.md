@@ -10,6 +10,11 @@
     - [1.5 Flop Simulation](#15-Flop-Simulation)
     - [1.6 Flop Synthesis](#16-Flop-Synthesis)
     - [1.7 Optimizations in Synthesis](#17-Optimizations-in-Synthesis)
+    - [1.8 Combinational optimization in yosys](#18-Combinational-optimization-in-yosys)
+    - [1.9 Sequential optimization in yosys](#19-Sequential-optimization-in-yosys)
+    - [1.10 Unused sequential outputs optimization](#110-Unused-sequential-outputs-optimization)
+    - [](#)
+
 
 
 ## Tools required during the project
@@ -196,14 +201,27 @@ Combinational logic can be optimized in 2 ways:-
 
  ### 1.8 Combinational optimization in yosys
 
-`opt_clean -purge` is used before synthesis to optimize the designs
+`opt_clean -purge` is used before synthesis to optimize the designs<br /><br />
 ![](Resources/1-19.png)<br /><br />
 ![](Resources/1-20.png)<br /><br />
 ![](Resources/1-21.png)<br /><br />
 ![](Resources/1-22.png)<br /><br />
-make sure to `flatten` designs with multiple submodules before running the optimization
+Make sure to `flatten` designs with multiple submodules before running the optimization<br /><br />
 ![](Resources/1-23.png)<br /><br />
 ![](Resources/1-24.png)<br /><br />
 
+ ### 1.9 Sequential optimization in yosys
 
+![](Resources/1-25.png)
+![](Resources/1-26.png)<br /><br />
+![](Resources/1-27.png)
+![](Resources/1-28.png)<br /><br />
+![](Resources/1-29.png)
+![](Resources/1-30.png)<br /><br />
+![](Resources/1-31.png)
+![](Resources/1-32.png)<br /><br />
 
+ ### 1.10 Unused sequential outputs optimization
+
+![](Resources/1-33.png)<br /><br />
+![](Resources/1-34.png)<br /><br />
