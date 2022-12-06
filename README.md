@@ -203,8 +203,11 @@ Combinational logic can be optimized in 2 ways:-
 
 `opt_clean -purge` is used before synthesis to optimize the designs<br /><br />
 ![](Resources/1-19.png)<br /><br />
+---
 ![](Resources/1-20.png)<br /><br />
+---
 ![](Resources/1-21.png)<br /><br />
+---
 ![](Resources/1-22.png)<br /><br />
 Make sure to `flatten` designs with multiple submodules before running the optimization<br /><br />
 ![](Resources/1-23.png)<br /><br />
@@ -214,10 +217,13 @@ Make sure to `flatten` designs with multiple submodules before running the optim
 
 ![](Resources/1-25.png)
 ![](Resources/1-26.png)<br /><br />
+---
 ![](Resources/1-27.png)
-![](Resources/1-28.png)<br /><br />
+![](Resources/1-28.png)<br /><br >
+---
 ![](Resources/1-29.png)
 ![](Resources/1-30.png)<br /><br />
+---
 ![](Resources/1-31.png)
 ![](Resources/1-32.png)<br /><br />
 
