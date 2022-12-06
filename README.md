@@ -182,3 +182,28 @@ during flop synthesis `dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.l
 **3 Bit number multiplied by 9**
 ![](Resources/1-18.png)
 
+**optimization in combinational logic**
+Combinational logic can be optimized in 2 ways:-
+1. When a signal in a combinational circuit is constant This is referred to as constant propagation.
+2. Large combinational logics can be optimized using Boolean Logic optimization or K-MAPS
+
+**optimization in sequential logic**
+
+- When the Q out put does not change in a flop the sequential element can be removed. For ex. flop with async rest where D is tied to 0.
+- State optimization : where unused states are optimized
+- Cloning : When a output of a single flop is shared by 2 or more flops that are placed far apart in the layout, there might be errors due to delays in long interconnects. In such scenario the single flop is cloned and placed close to the driven flops to reduce delays.
+- Re-timing : When the slack time due to combinational logic between flops limits the processing speed, the combinational logic is redistributed between flops to optimize the maximum operating frequency.
+
+ ### 1.8 Combinational optimization in yosys
+
+`opt_clean -purge` is used before synthesis to optimize the designs
+![](Resources/1-19.png)<br /><br />
+![](Resources/1-20.png)<br /><br />
+![](Resources/1-21.png)<br /><br />
+![](Resources/1-22.png)<br /><br />
+make sure to `flatten` designs with multiple submodules before running the optimization
+![](Resources/1-23.png)<br /><br />
+![](Resources/1-24.png)<br /><br />
+
+
+
