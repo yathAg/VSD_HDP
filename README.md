@@ -232,3 +232,31 @@ Make sure to `flatten` designs with multiple submodules before running the optim
 ![](Resources/1-33.png)<br /><br />
 ---
 ![](Resources/1-34.png)<br /><br />
+
+ ### 1.11 GLS and Simulation mismatch
+
+ GLS stands for gate level simulation where the synthesized netlist is validated against the testbench and the verilog models of the Logic Gates are giver for simulation.
+
+ **Why GLS??**
+
+ - It is useful for verifying the timing analysis of the generated netlist.
+ - There might by Synthesis simulation mismatches between the design and the RTL netlist
+
+ **Reasons for Synthesis Simulation mismatches**
+
+ - Missing sensitivity List: In the verilog code if the appropriate inputs are not defined, the simulator will not analyze the changes for the missing signal in the sensitivity list.
+ - Blocking and Non-Blocking statements : In blocking statements (a=b) the order of the statements matters and might result in incorrect synthesis. Therefore for sequential circuits non-blocking statements (a<=b) should be used.
+
+Bad_mux Verilog 
+![](Resources/1-37.png)<br />
+
+Bad_mux simulation 
+![](Resources/1-35.png)<br />
+
+Iverilog can perform GLS by priding the RTL files as ```iverilog ../lib/verilog_model/primitives.v ../lib/verilog_model/sky130_fd_sc_hd.v bad_mux_net.v tb_bad_mux.v```
+
+Bad_mux synthesis simulation 
+![](Resources/1-36.png)<br />
+
+
+It is clearly seen that the design simulation and synthesis simulation are different due to missing sensitivity list in the always block
