@@ -16,9 +16,6 @@
     - [1.11 GLS and Simulation mismatch](#111-GLS-and-Simulation-mismatch)
     - [](#)
 
-
-
-
 ## Tools required during the project
 ### yosys
 ![](Resources/yosys.png)
@@ -271,4 +268,4 @@ Blocking_caveat Verilog and design simulation<br />
 RTL simulation <br />
 ![](Resources/1-39.png)<br />
 
-<Please make sure to use Non Blocking statements in sequential verilog codes to avoid such errors>
+>Please make sure to use Non Blocking statements in sequential verilog codes to avoid such errors
