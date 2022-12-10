@@ -13,7 +13,9 @@
     - [1.8 Combinational optimization in yosys](#18-Combinational-optimization-in-yosys)
     - [1.9 Sequential optimization in yosys](#19-Sequential-optimization-in-yosys)
     - [1.10 Unused sequential outputs optimization](#110-Unused-sequential-outputs-optimization)
+    - [1.11 GLS and Simulation mismatch](#111-GLS-and-Simulation-mismatch)
     - [](#)
+
 
 
 
