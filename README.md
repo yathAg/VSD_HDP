@@ -247,16 +247,26 @@ Make sure to `flatten` designs with multiple submodules before running the optim
  - Missing sensitivity List: In the verilog code if the appropriate inputs are not defined, the simulator will not analyze the changes for the missing signal in the sensitivity list.
  - Blocking and Non-Blocking statements : In blocking statements (a=b) the order of the statements matters and might result in incorrect synthesis. Therefore for sequential circuits non-blocking statements (a<=b) should be used.
 
-Bad_mux Verilog 
+Bad_mux Verilog <br />
 ![](Resources/1-37.png)<br />
 
-Bad_mux simulation 
+Bad_mux simulation<br /> 
 ![](Resources/1-35.png)<br />
 
-Iverilog can perform GLS by priding the RTL files as ```iverilog ../lib/verilog_model/primitives.v ../lib/verilog_model/sky130_fd_sc_hd.v bad_mux_net.v tb_bad_mux.v```
+Iverilog can perform GLS by priding the RTL files as <br />
+```iverilog ../lib/verilog_model/primitives.v ../lib/verilog_model/sky130_fd_sc_hd.v bad_mux_net.v tb_bad_mux.v```
 
-Bad_mux synthesis simulation 
+Bad_mux synthesis simulation<br />
 ![](Resources/1-36.png)<br />
 
+It is clearly seen that the design simulation and synthesis simulation are different due to ```missing sensitivity list``` in the always block
 
-It is clearly seen that the design simulation and synthesis simulation are different due to missing sensitivity list in the always block
+**blocking Statement mismatch**
+
+Blocking_caveat Verilog and design simulation<br />
+![](Resources/1-38.png)<br />
+
+RTL simulation <br />
+![](Resources/1-39.png)<br />
+
+<Please make sure to use Non Blocking statements in sequential verilog codes to avoid such errors>
