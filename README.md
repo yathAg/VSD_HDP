@@ -16,8 +16,6 @@
     - [1.11 GLS and Simulation mismatch](#111-GLS-and-Simulation-mismatch)
     - [](#)
 
-<details><summary> Tools required during the project  </summary> 
-
 ## Tools required during the project
 ### yosys
 ![](Resources/yosys.png)
@@ -48,8 +46,7 @@ $ sudo apt-get install xterm
 ### icarus verilog
 
 ### gtkwave
-</details>
-<details><summary> Chapter 1 - RTL DESIGN USING VERILOG WITH SKY130 TECHNOLOGY </summary> 
+
 
 
 ## Chapter 1 - RTL DESIGN USING VERILOG WITH SKY130 TECHNOLOGY
@@ -272,5 +269,3 @@ RTL simulation <br />
 ![](Resources/1-39.png)<br />
 
 >Please make sure to use Non Blocking statements in sequential verilog codes to avoid such errors
-
-</details>
