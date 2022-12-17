@@ -1,7 +1,7 @@
 # VSD Hardware Design Program
 
 ## Index
-+ [Tools required during the project](#DTools-required-during-the-project)
++ [Tools required during the project](#Tools-required-during-the-project)
 + [Chapter 1 - RTL DESIGN USING VERILOG WITH SKY130 TECHNOLOGY](#Chapter-1---RTL-DESIGN-USING-VERILOG-WITH-SKY130-TECHNOLOGY)
     - [1.1 Simulation Using iverilog and gtkwave](#11-Simulation-Using-iverilog-and-gtkwave)
     - [1.2 Logic synthesis using Yosys](#12-Logic-synthesis-using-Yosys)
@@ -15,6 +15,8 @@
     - [1.10 Unused sequential outputs optimization](#110-Unused-sequential-outputs-optimization)
     - [1.11 GLS and Simulation mismatch](#111-GLS-and-Simulation-mismatch)
     - [](#)
+
+<details><summary> Tools required during the project  </summary> 
 
 ## Tools required during the project
 ### yosys
@@ -47,6 +49,7 @@ $ sudo apt-get install xterm
 
 ### gtkwave
 
+<details><summary> Chapter 1 - RTL DESIGN USING VERILOG WITH SKY130 TECHNOLOGY </summary> 
 
 
 ## Chapter 1 - RTL DESIGN USING VERILOG WITH SKY130 TECHNOLOGY
