@@ -48,7 +48,7 @@ $ sudo apt-get install xterm
 ### icarus verilog
 
 ### gtkwave
-
+</details>
 <details><summary> Chapter 1 - RTL DESIGN USING VERILOG WITH SKY130 TECHNOLOGY </summary> 
 
 
@@ -272,3 +272,5 @@ RTL simulation <br />
 ![](Resources/1-39.png)<br />
 
 >Please make sure to use Non Blocking statements in sequential verilog codes to avoid such errors
+
+</details>
