@@ -1,5 +1,16 @@
 # VSD Hardware Design Program
 
+This repository elaborates the process of an RTL to GDSII flow using OPENLane. it covers the various synthesis, floorplanning, routing amd timing specifications and steps required to fabricate the required circuit.
+
+This repository contains the detailed theory for all the aforementioned steps and implements them to convert the RTL file for a RISC-V core with memory to the GDSII file for the SKY130 process.
+
+## File Directory 
+
+   .
+    ├── RTL_Design                 # Folder containing the files for all the tutorials.
+    ├── Resources                  # Images used in the README.md
+    └── README.md                  # This file
+
 ## Index
 + [Tools required during the project](#Tools-required-during-the-project)
 + [Chapter 1 - RTL DESIGN USING VERILOG WITH SKY130 TECHNOLOGY](#Chapter-1---RTL-DESIGN-USING-VERILOG-WITH-SKY130-TECHNOLOGY)
@@ -15,6 +26,7 @@
     - [1.10 Unused sequential outputs optimization](#110-Unused-sequential-outputs-optimization)
     - [1.11 GLS and Simulation mismatch](#111-GLS-and-Simulation-mismatch)
     - [](#)
++ 
 
 ## Tools required during the project
 ### yosys
@@ -269,3 +281,29 @@ RTL simulation <br />
 ![](Resources/1-39.png)<br />
 
 >Please make sure to use Non Blocking statements in sequential verilog codes to avoid such errors
+
+ ### 1.11 If, case, for loop and for generate synthesis issues
+
+ **Incomplete If Statements**
+
+Incomplete If statements result in the formation of Latches hence it is important to define all the cases of an if case.
+![](Resources/1-41.png)<br />
+![](Resources/1-42.png)<br />
+
+**Incomplete Case Statements**
+![](Resources/1-43.png)<br />
+**Complete Case Statements**
+![](Resources/1-44.png)<br />
+**Partial Case Statements**
+![](Resources/1-45.png)<br />
+**Repeated Case Statements**
+![](Resources/1-46.png)<br />
+![](Resources/1-47.png)<br />
+
+
+
+
+
+
+
+

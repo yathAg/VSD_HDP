@@ -4,28 +4,28 @@
 
 
 `timescale 1ns / 1ps
-module tb_partial_case_assign.v;
+module tb_partial_case_assign;
 	//input
-	reg i0,i1,i2,sel;
+	reg i0,i1,i2;
+	reg [1:0] sel;
 	// Output
 	wire x,y;
 	//TB_SIGNALS
         reg clk,reset;	
 
         // Instantiate the Unit Under Test (UUT)
-	partial_case_assign.v uut (
+	partial_case_assign uut (
 		.sel(sel),
 		.i0(i0),
 		.i1(i1),
 		.i2(i2),
-		.i3(i3),
 		.x(x),
 		.y(y)
 	);
 
 	initial begin
-	$dumpfile("tb_partial_case_assign.v.vcd");
-	$dumpvars(0,tb_partial_case_assign.v);
+	$dumpfile("tb_partial_case_assign.vcd");
+	$dumpvars(0,tb_partial_case_assign);
 	// Initialize Inputs
 	i0 = 1'b0;
 	i1 = 1'b0;
