@@ -25,7 +25,7 @@ This repository contains the detailed theory for all the aforementioned steps an
     - [1.9 Sequential optimization in yosys](#19-Sequential-optimization-in-yosys)
     - [1.10 Unused sequential outputs optimization](#110-Unused-sequential-outputs-optimization)
     - [1.11 GLS and Simulation mismatch](#111-GLS-and-Simulation-mismatch)
-    - [](#)
+    - [1.12 If, case, for loop and for generate synthesis issues](#112-If,-case,-for-loop-and-for-generate-synthesis-issues)
 + 
 
 ## Tools required during the project
@@ -282,7 +282,7 @@ RTL simulation <br />
 
 >Please make sure to use Non Blocking statements in sequential verilog codes to avoid such errors
 
- ### 1.11 If, case, for loop and for generate synthesis issues
+ ### 1.12 If, case, for loop and for generate synthesis issues
 
  **Incomplete If Statements**
 
