@@ -37,11 +37,11 @@ Once the verilog file is generated:
 - Compare the simulations using gtkwave
 > Please make sure that the latest sky130_PDK libraries are used during the synthesis.
 
-**Yosys Output**
-![](../Resources/s1-1.png)<br />
+**Yosys Output**<br />
+![](../Resources/s1-1.png)<br /><br />
 
 **GLS Verification**
-![](../Resources/s1-2.png)<br />
+![](../Resources/s1-2.png)<br /><br />
 ![](../Resources/s1-3.png)<br />
 
 
