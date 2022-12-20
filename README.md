@@ -12,7 +12,9 @@ This repository contains the detailed theory for all the aforementioned steps an
 
 ## Index
 + [Tools required during the project](#Tools-required-during-the-project)
+
 + [Chapter 1 - RTL DESIGN USING VERILOG WITH SKY130 TECHNOLOGY](#Chapter-1---RTL-DESIGN-USING-VERILOG-WITH-SKY130-TECHNOLOGY)
+
     - [1.1 Simulation Using iverilog and gtkwave](#11-Simulation-Using-iverilog-and-gtkwave)
     - [1.2 Logic synthesis using Yosys](#12-Logic-synthesis-using-Yosys)
     - [1.3 Understanding the .libs files](#13-Understanding-the-libs-files)
@@ -25,7 +27,13 @@ This repository contains the detailed theory for all the aforementioned steps an
     - [1.10 Unused sequential outputs optimization](#110-Unused-sequential-outputs-optimization)
     - [1.11 GLS and Simulation mismatch](#111-GLS-and-Simulation-mismatch)
     - [1.12 If, case, for loop and for generate synthesis issues](#112-If,-case,-for-loop-and-for-generate-synthesis-issues)
-+ 
+
+    - [Step 1 - VSDmemSOC RTL Simulation and GLS Verification](https://github.com/yathAg/VSD_Hardware_design/tree/main/VSDmemSOC#step-1---rtl-simulation-and-gls-verification)
+
++ [Chapter 2 - Understanding Constraints and Static Timing Analysis](#Chapter-2---Understanding-Constraints-and-Static-Timing-Analysis)  
+
+    - [](#)
+
 
 ## Tools required during the project
 ### yosys
@@ -281,9 +289,9 @@ RTL simulation <br />
 
 >Please make sure to use Non Blocking statements in sequential verilog codes to avoid such errors
 
- ### 1.12 If, case, for loop and for generate synthesis issues
+### 1.12 If, case, for loop and for generate synthesis issues
 
- **Incomplete If Statements**
+**Incomplete If Statements**
 
 Incomplete If statements result in the formation of Latches hence it is important to define all the cases of an if case.
 ![](Resources/1-41.png)<br />
@@ -299,10 +307,7 @@ Incomplete If statements result in the formation of Latches hence it is importan
 ![](Resources/1-46.png)<br />
 ![](Resources/1-47.png)<br />
 
-
-
-
-sandpiper-saas -i rvmyth.tlv -o rvmyth.v --bestsv --noline -p verilog
+## Chapter 2 - Understanding Constraints and Static Timing Analysis  
 
 
 
