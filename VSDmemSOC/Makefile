@@ -28,6 +28,8 @@ pre_synth_sim: $(COMPILED_TLV_PATH)
 			-I $(INCLUDE_PATH) -I $(MODULE_PATH) -I $(COMPILED_TLV_PATH); \
 		cd $(PRE_SYNTH_SIM_PATH); ./pre_synth_sim.out; \
 	fi
+
+.PHONY: post_synth_sim
 post_synth_sim:
 	if [ ! -f "$(POST_SYNTH_SIM_PATH)/post_synth_sim.vcd" ]; then \
 		mkdir -p $(POST_SYNTH_SIM_PATH); \
