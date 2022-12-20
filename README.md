@@ -5,8 +5,7 @@ This repository elaborates the process of an RTL to GDSII flow using OPENLane. i
 This repository contains the detailed theory for all the aforementioned steps and implements them to convert the RTL file for a RISC-V core with memory to the GDSII file for the SKY130 process.
 
 ## File Directory 
-
-   .
+    .
     ├── RTL_Design                 # Folder containing the files for all the tutorials.
     ├── Resources                  # Images used in the README.md
     └── README.md                  # This file
