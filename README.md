@@ -26,9 +26,7 @@ This repository contains the detailed theory for all the aforementioned steps an
     - [1.10 Unused sequential outputs optimization](#110-Unused-sequential-outputs-optimization)
     - [1.11 GLS and Simulation mismatch](#111-GLS-and-Simulation-mismatch)
     - [1.12 If, case, for loop and for generate synthesis issues](#112-If,-case,-for-loop-and-for-generate-synthesis-issues)
-
     - [Step 1 - VSDmemSOC RTL Simulation and GLS Verification](https://github.com/yathAg/VSD_Hardware_design/tree/main/VSDmemSOC#step-1---rtl-simulation-and-gls-verification)
-
 + [Chapter 2 - Understanding Constraints and Static Timing Analysis](#Chapter-2---Understanding-Constraints-and-Static-Timing-Analysis)  
 
     - [](#)
