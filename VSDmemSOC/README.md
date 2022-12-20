@@ -38,11 +38,11 @@ Once the verilog file is generated:
 > Please make sure that the latest sky130_PDK libraries are used during the synthesis.
 
 **Yosys Output**
-![](Resources/s1-1.png)<br />
+![](../Resources/s1-1.png)<br />
 
 **GLS Verification**
-![](Resources/s1-2.png)<br />
-![](Resources/s1-3.png)<br />
+![](../Resources/s1-2.png)<br />
+![](../Resources/s1-3.png)<br />
 
 
 
