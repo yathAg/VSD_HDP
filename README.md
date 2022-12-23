@@ -5,6 +5,7 @@ This repository elaborates the process of an RTL to GDSII flow using OPENLane. i
 This repository contains the detailed theory for all the aforementioned steps and implements them to convert the RTL file for a RISC-V core with memory to the GDSII file for the SKY130 process.
 
 <hr style="border:2px solid blue">
+<hr style="border:2px solid blue">
 
 ## File Directory 
     .
@@ -12,6 +13,7 @@ This repository contains the detailed theory for all the aforementioned steps an
     ├── Resources                  # Images used in the README.md
     └── README.md                  
 
+<hr style="border:2px solid blue">
 <hr style="border:2px solid blue">
 
 ## Index
@@ -36,6 +38,7 @@ This repository contains the detailed theory for all the aforementioned steps an
     - [](#)
 
 
+<hr style="border:2px solid blue">
 <hr style="border:2px solid blue">
 
 ## Tools required during the project
@@ -78,8 +81,7 @@ $ sudo apt-get install xterm
 ### gtkwave
 
 <hr style="border:2px solid blue">
-
-
+<hr style="border:2px solid blue">
 
 ## Chapter 1 - RTL DESIGN USING VERILOG WITH SKY130 TECHNOLOGY
 
@@ -362,32 +364,38 @@ Example 2
  - Missing sensitivity List: In the verilog code if the appropriate inputs are not defined, the simulator will not analyze the changes for the missing signal in the sensitivity list.
  - Blocking and Non-Blocking statements : In blocking statements (a=b) the order of the statements matters and might result in incorrect synthesis. Therefore for sequential circuits non-blocking statements (a<=b) should be used.
 
-Bad_mux Verilog <br />
-![](Resources/1-37.png)<br />
+Bad_mux Verilog 
+
+![](Resources/1-37.png)
 
 ---
-Bad_mux simulation<br /> 
-![](Resources/1-35.png)<br />
+Bad_mux simulation
+
+![](Resources/1-35.png)
 
 ---
 Iverilog can perform GLS by priding the RTL files as <br />
 ```iverilog ../lib/verilog_model/primitives.v ../lib/verilog_model/sky130_fd_sc_hd.v bad_mux_net.v tb_bad_mux.v```
 
 ---
-Bad_mux synthesis simulation<br />
-![](Resources/1-36.png)<br />
+Bad_mux synthesis simulation
+
+![](Resources/1-36.png)
 
 It is clearly seen that the design simulation and synthesis simulation are different due to ```missing sensitivity list``` in the always block
 
 ---
-**blocking Statement mismatch**
+**Blocking Statement mismatch**
 
-Blocking_caveat Verilog and design simulation<br />
-![](Resources/1-38.png)<br />
+Blocking_caveat Verilog and design simulation
+
+![](Resources/1-38.png)
 
 ---
-RTL simulation <br />
-![](Resources/1-39.png)<br />
+RTL simulation 
+
+![](Resources/1-39.png)
+
 
 >Please make sure to use Non Blocking statements in sequential verilog codes to avoid such errors
 
@@ -430,7 +438,7 @@ Example 2
 ![](Resources/1-47.png)<br />
 
 <hr style="border:2px solid blue">
-<br /><br />
+<hr style="border:2px solid blue">
 
 ## Chapter 2 - Understanding Constraints and Static Timing Analysis  
 
