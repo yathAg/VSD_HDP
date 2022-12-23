@@ -325,12 +325,14 @@ During synthesis a constraint file is provided along with the RTL and .lib to he
 + Setup Time Requirement (Max Delay) 
 
 This is the requirement required to meet the setup time of a flop and decides the minimum frequency of the system. 
-T<sub>clk</sub> > T<sub>CQ_A</sub>+T<sub>COMBI</sub>+T<sub>SETUP_B</sub>  
+
+`T<sub>clk</sub> > T<sub>CQ_A</sub>+T<sub>COMBI</sub>+T<sub>SETUP_B</sub>`
 
 + Hold Time Requirement (Min Delay)
 
 This is the requirement to meet the hold time requirement of a flop and decides the maximum frequency of the system.
-T<sub>HOLD_B</sub> < T<sub>CQ_A</sub>+T<sub>COMBI</sub> 
+
+`T<sub>HOLD_B</sub> < T<sub>CQ_A</sub>+T<sub>COMBI</sub>` 
 
 ![](Resources/2-2.png)<br />
 
