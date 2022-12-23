@@ -5,15 +5,14 @@ This repository elaborates the process of an RTL to GDSII flow using OPENLane. i
 This repository contains the detailed theory for all the aforementioned steps and implements them to convert the RTL file for a RISC-V core with memory to the GDSII file for the SKY130 process.
 
 <hr style="border:2px solid blue">
-<hr style="border:2px solid blue">
 
 ## File Directory 
     .
     ├── RTL_Design                 # Folder containing the files for all the tutorials.
     ├── Resources                  # Images used in the README.md
+    ├── VSDmemSOC                  # VSDmemSOC project files
     └── README.md                  
 
-<hr style="border:2px solid blue">
 <hr style="border:2px solid blue">
 
 ## Index
@@ -34,11 +33,11 @@ This repository contains the detailed theory for all the aforementioned steps an
     - [1.12 If, case, for loop and for generate synthesis issues](#112-If,-case,-for-loop-and-for-generate-synthesis-issues)
 + [Step 1 - VSDmemSOC RTL Simulation and GLS Verification](https://github.com/yathAg/VSD_Hardware_design/tree/main/VSDmemSOC#step-1---rtl-simulation-and-gls-verification)
 + [Chapter 2 - Understanding Constraints and Static Timing Analysis](#Chapter-2---Understanding-Constraints-and-Static-Timing-Analysis)  
-
+    - [2.1 Static timing analysis](#21-Static-timing-analysis)
+    - [2.2 Timing Arcs](#22-Timing-Arcs)
+    - [2.3 Understanding timing paths & IO Modeling](#23-Understanding-timing-paths-&-IO-Modeling)
     - [](#)
-
-
-<hr style="border:2px solid blue">
+   
 <hr style="border:2px solid blue">
 
 ## Tools required during the project
@@ -438,7 +437,6 @@ Example 2
 ![](Resources/1-47.png)<br />
 
 <hr style="border:2px solid blue">
-<hr style="border:2px solid blue">
 
 ## Chapter 2 - Understanding Constraints and Static Timing Analysis  
 
@@ -458,7 +456,7 @@ During synthesis a constraint file is provided along with the RTL and .lib to he
 
 <hr style="border:2px solid blue">
 
-### Static timing analysis
+### 2.1 Static timing analysis
 
 + Setup Time Requirement (Max Delay) 
 
@@ -480,7 +478,8 @@ This is the requirement to meet the hold time requirement of a flop.
 + Higher Load capacitance (output load) higher the delay.
 
 <hr style="border:2px solid blue">
-### Timing Arcs
+
+### 2.2 Timing Arcs
 
 + combinational Cells
     -All the paths from input to output which leads to a delay.
@@ -494,7 +493,8 @@ This is the requirement to meet the hold time requirement of a flop.
 
 <hr style="border:2px solid blue">
 
-### Understanding timing paths & IO Modeling
+### 2.3 Understanding timing paths & IO Modeling
+
 There are different paths in a circuit which determine the critical path of a circuit.
 The critical path is the path with the highest delay (slowest path) and determines the operating frequency of the circuit.
 
