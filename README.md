@@ -304,6 +304,9 @@ Incomplete If statements result in the formation of Latches hence it is importan
 ![](Resources/1-46.png)<br />
 ![](Resources/1-47.png)<br />
 
+<hr style="border:2px solid blue">
+<br /><br />
+
 ## Chapter 2 - Understanding Constraints and Static Timing Analysis  
 
 **What are constraints?**
@@ -319,6 +322,8 @@ SDC stands for Synopsys Design Constraints which has become an industry standard
 During synthesis a constraint file is provided along with the RTL and .lib to help the synthesis tool decide what flavour of the cell to use to optimize the design for performance and area.
 
 ![](Resources/2-1.png)<br />
+
+<hr style="border:2px solid blue">
 
 **Static timing analysis**
 
@@ -355,6 +360,9 @@ This is the requirement to meet the hold time requirement of a flop.
 
 ![](Resources/2-3.png)<br />
 
+<hr style="border:2px solid blue">
+
+
 **Understanding timing paths**
 
 There are different paths in a circuit which determine the critical path of a circuit.
@@ -383,6 +391,8 @@ This gives us 3 types of paths:
 > IO Paths are undesirable <br /><br />
 
 ![](Resources/2-4.png)<br />
+
+<hr style="border:2px solid blue">
 
 **Constraining the design & IO Modeling**
 
