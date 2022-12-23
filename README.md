@@ -336,21 +336,22 @@ This is the requirement to meet the hold time requirement of a flop.
 
 ![](Resources/2-2.png)<br />
 
+<hr style="border:2px solid blue">
 
 **Parameters affecting Delay**
 
-+ A higher inflow of current corresponds to a lower delay
++ Higher inflow of current corresponds to a lower delay
 + Higher Load capacitance (output load) higher the delay.
 
 **Timing Arcs**
 
 + combinational Cells
-All the paths from input to output which leads to a delay.
+    -All the paths from input to output which leads to a delay.
 
 + Sequential Cell 
-- Delay from clk to Q for DFlop
-- Delay from clk to Q or D to Q for Dlatch
-- Setup and Hold times
+    - Delay from clk to Q for DFlop
+    - Delay from clk to Q or D to Q for Dlatch
+    - Setup and Hold times
 
 ![](Resources/2-3.png)<br />
 
@@ -379,7 +380,7 @@ This gives us 3 types of paths:
     - Modeling the above 2 paths is referred to as IO delay Modeling and has to be constrained for both max and min delay.
 + ` IO timing Path` - Input to Output ports. 
 
-> IO Ports are undesirable
+> IO Paths are undesirable <br /><br />
 
 ![](Resources/2-4.png)<br />
 
