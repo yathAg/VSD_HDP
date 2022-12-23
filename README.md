@@ -70,6 +70,7 @@ $ sudo apt-get install xterm
 
 ### opensta
 ![](Resources/opensta.png)
+
 ### icarus verilog
 
 <hr style="border:2px solid blue">
@@ -144,11 +145,10 @@ write_verilog -noattr good_mux_netlist.v
 ```
 
 The output summary is shown as follows
-
 ![](Resources/1-5.png)
 ---
-A flow chart containing the used cells and the wires can be seen using the `show` command
 
+A flow chart containing the used cells and the wires can be seen using the `show` command
 ![](Resources/1-6.png)
 ---
 
@@ -164,13 +164,13 @@ Library name `sky130_fd_sc_hd__tt_025C_1v80`:
    -`sky130_fd_sc_hd` : process namePVT variations
    - `tt` - typical process from (slow, fast , typical) 
    - `025C` - temperature1.5 Flop Coding 
+
 Hierarchical Synthesis considers and instantiates each module described in the design individually. The module may be optimized by the synthesizer using different gates while maintaining the same logic.Usually when a stacked PMOS can be replaced buy circuit with stacked NMOS the circuit will be more optimized.
 
 ![](Resources/1-8.png)
 ---
 
 The `flatten` command synthesis the design as described and eliminates the sub modules.
-
 ![](Resources/1-9.png)
 ---
 
@@ -202,15 +202,15 @@ asynchronous signals are independent of the clock and the output signal is chang
 
 **Asynchronous reset**
 ![](Resources/1-11.png)
----
+
 
 **Asynchronous set**
 ![](Resources/1-12.png)
----
+
 
 **Synchronous Reset**
 ![](Resources/1-13.png)
----
+
 
 ### 1.6 Flop Synthesis
 
@@ -218,11 +218,11 @@ During flop synthesis `dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.l
 
 **Asynchronous reset**
 ![](Resources/1-14.png)
----
+
 
 **Asynchronous set**
 ![](Resources/1-15.png)
----
+
 
 **Synchronous Reset**
 ![](Resources/1-16.png)
@@ -233,13 +233,12 @@ During flop synthesis `dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.l
 
 **optimization in multipliers**<br />
 ![](Resources/1-17.png)
----
 
 **3 Bit number multiplied by 9**
 ![](Resources/1-18.png)
----
 
 **Optimization in combinational logic**
+
 Combinational logic can be optimized in 2 ways:-
 1. When a signal in a combinational circuit is constant This is referred to as constant propagation.
 2. Large combinational logics can be optimized using Boolean Logic optimization or K-MAPS.
@@ -255,42 +254,52 @@ Combinational logic can be optimized in 2 ways:-
 
 ### 1.8 Combinational optimization in yosys
 
-`opt_clean -purge` is used before synthesis to optimize the designs<br />
+The command `opt_clean -purge` is used before synthesis to optimize the designs<br />
+
+Example 1
 ![](Resources/1-19.png)<br />
 ---
-
+Example 2
 ![](Resources/1-20.png)<br />
 ---
-
+Example 3
 ![](Resources/1-21.png)<br />
 ---
-
+Example 4
 ![](Resources/1-22.png)<br />
 ---
 Make sure to `flatten` designs with multiple submodules before running the optimization<br /><br />
+Example 5
 ![](Resources/1-23.png)<br />
+---
+Example 6
 ![](Resources/1-24.png)<br />
 
 <hr style="border:2px solid blue">
 
- ### 1.9 Sequential optimization in yosys
+### 1.9 Sequential optimization in yosys
 
+Example 1
 ![](Resources/1-25.png)
 ![](Resources/1-26.png)<br /><br />
 ---
+Example 2
 ![](Resources/1-27.png)
 ![](Resources/1-28.png)<br /><br >
 ---
+Example 3
 ![](Resources/1-29.png)
 ![](Resources/1-30.png)<br /><br />
 ---
+Example 4
 ![](Resources/1-31.png)
 ![](Resources/1-32.png)<br /><br />
 
 <hr style="border:2px solid blue">
 
- ### 1.10 Unused sequential outputs optimization
+### 1.10 Unused sequential outputs optimization
 
+Example 1
 ![](Resources/1-33.png)<br /><br />
 ---
 ![](Resources/1-34.png)<br /><br />
