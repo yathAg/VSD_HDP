@@ -518,6 +518,7 @@ This gives us 3 types of paths:
 + ` IO timing Path` - Input to Output ports. 
 
 ![](Resources/2-4.png)<br />
+
 ---
 Based on the Clock period the synthesizer decides the maximum possible Combinational delay to meet the STA.
 
@@ -525,5 +526,5 @@ Based on the Clock period the synthesizer decides the maximum possible Combinati
 + Output load has to be considered for external modules ( might be defined by spec) to meet reg output path.
 + Over modeling has to be avoided to prevent tool from using extra large cells, leaky cells or failing to synthesize path.
 
-
+<hr style="border:2px solid blue">
 

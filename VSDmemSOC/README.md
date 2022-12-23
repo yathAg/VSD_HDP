@@ -10,7 +10,9 @@
     ├── output              # Output files Produced during runtime
     ├── Makefile            # Makefile for executing steps during design flow
     ├── yosys.yc            # yosys run script
-    └── README.md                  
+    └── README.md
+                      
+<hr style="border:2px solid blue">
 
 ## Make commands
 
@@ -19,6 +21,8 @@
 + `pre_synth_sim`       RTL Simulation using iverilog
 + `synth`               Synthesizes netlist using YOSYS
 + `post_synth_sim`      GLS Simulation using iverilog
+
+<hr style="border:2px solid blue">
 
 ## Step 1 - RTL Simulation and GLS Verification
 
@@ -40,10 +44,12 @@ Once the verilog file is generated:
 **Yosys Output**<br />
 ![](../Resources/s1-1.png)<br /><br />
 
+---
 **GLS Verification**
 ![](../Resources/s1-2.png)<br /><br />
 ![](../Resources/s1-3.png)<br />
 
+<hr style="border:2px solid blue">
 
 
 
