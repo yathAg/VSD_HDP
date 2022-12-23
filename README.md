@@ -325,7 +325,7 @@ During synthesis a constraint file is provided along with the RTL and .lib to he
 
 <hr style="border:2px solid blue">
 
-**Static timing analysis**
+### Static timing analysis
 
 + Setup Time Requirement (Max Delay) 
 
@@ -348,7 +348,7 @@ This is the requirement to meet the hold time requirement of a flop.
 + Higher inflow of current corresponds to a lower delay
 + Higher Load capacitance (output load) higher the delay.
 
-**Timing Arcs**
+### Timing Arcs
 
 + combinational Cells
     -All the paths from input to output which leads to a delay.
@@ -362,11 +362,8 @@ This is the requirement to meet the hold time requirement of a flop.
 
 <hr style="border:2px solid blue">
 
-
-**Understanding timing paths**
-
+### Understanding timing paths & IO Modeling
 There are different paths in a circuit which determine the critical path of a circuit.
-
 The critical path is the path with the highest delay (slowest path) and determines the operating frequency of the circuit.
 
 Starting points for the paths are:
@@ -391,17 +388,11 @@ This gives us 3 types of paths:
 > IO Paths are undesirable <br /><br />
 
 ![](Resources/2-4.png)<br />
-
-<hr style="border:2px solid blue">
-
-**Constraining the design & IO Modeling**
-
+---
 Based on the Clock period the synthesizer decides the maximum possible Combinational delay to meet the STA.
 
 + Practical Input transition period has to be accounted for Input Reg path
-
 + Output load has to be considered for external modules ( might be defined by spec) to meet reg output path.
-
 + Over modeling has to be avoided to prevent tool from using extra large cells, leaky cells or failing to synthesize path.
 
 
