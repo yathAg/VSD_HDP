@@ -84,8 +84,6 @@ $ sudo apt-get install xterm
 
 The files used in this section can be cloned from: [https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git](https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git)
 
-<hr style="border:2px solid blue">
-
 ### 1.1 Simulation Using iverilog and gtkwave
 
 Icarus Verilog or any other simulation program takes a verilog file and its corresponding testbench to produce a .vcd file.<br />
@@ -148,11 +146,11 @@ write_verilog -noattr good_mux_netlist.v
 The output summary is shown as follows
 
 ![](Resources/1-5.png)
-
-
+---
 A flow chart containing the used cells and the wires can be seen using the `show` command
 
 ![](Resources/1-6.png)
+---
 
 The `-noattr` switch generates a clean netlist file
 
@@ -169,10 +167,12 @@ Library name `sky130_fd_sc_hd__tt_025C_1v80`:
 Hierarchical Synthesis considers and instantiates each module described in the design individually. The module may be optimized by the synthesizer using different gates while maintaining the same logic.Usually when a stacked PMOS can be replaced buy circuit with stacked NMOS the circuit will be more optimized.
 
 ![](Resources/1-8.png)
+---
 
 The `flatten` command synthesis the design as described and eliminates the sub modules.
 
 ![](Resources/1-9.png)
+---
 
 The sub modules can also be synthesized individually this has the following advantages
 - If the design contains repeated sub modules, they do not need to be synthesizer multiple times
@@ -202,8 +202,10 @@ asynchronous signals are independent of the clock and the output sigal is change
 
 **Asynchronous reset**
 ![](Resources/1-11.png)
+---
 **Asynchronous set**
 ![](Resources/1-12.png)
+---
 **Synchronous Reset**
 ![](Resources/1-13.png)
 
@@ -213,8 +215,10 @@ asynchronous signals are independent of the clock and the output sigal is change
 during flop synthesis `dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib` is used to map the library containing the flop standard cells<br /><br />
 **Asynchronous reset**
 ![](Resources/1-14.png)
+---
 **Asynchronous set**
 ![](Resources/1-15.png)
+---
 **Synchronous Reset**
 ![](Resources/1-16.png)
 
@@ -224,16 +228,16 @@ during flop synthesis `dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.l
 
 **optimization in multipliers**<br />
 ![](Resources/1-17.png)
-
+---
 **3 Bit number multiplied by 9**
 ![](Resources/1-18.png)
-
-**optimization in combinational logic**
+---
+**Optimization in combinational logic**
 Combinational logic can be optimized in 2 ways:-
 1. When a signal in a combinational circuit is constant This is referred to as constant propagation.
-2. Large combinational logics can be optimized using Boolean Logic optimization or K-MAPS
+2. Large combinational logics can be optimized using Boolean Logic optimization or K-MAPS.
 
-**optimization in sequential logic**
+**Optimization in sequential logic**
 
 - When the Q out put does not change in a flop the sequential element can be removed. For ex. flop with async rest where D is tied to 0.
 - State optimization : where unused states are optimized
@@ -242,19 +246,19 @@ Combinational logic can be optimized in 2 ways:-
 
 <hr style="border:2px solid blue">
 
- ### 1.8 Combinational optimization in yosys
+### 1.8 Combinational optimization in yosys
 
-`opt_clean -purge` is used before synthesis to optimize the designs<br /><br />
-![](Resources/1-19.png)<br /><br />
+`opt_clean -purge` is used before synthesis to optimize the designs<br />
+![](Resources/1-19.png)<br />
 ---
-![](Resources/1-20.png)<br /><br />
+![](Resources/1-20.png)<br />
 ---
-![](Resources/1-21.png)<br /><br />
+![](Resources/1-21.png)<br />
 ---
 ![](Resources/1-22.png)<br /><br />
 Make sure to `flatten` designs with multiple submodules before running the optimization<br /><br />
-![](Resources/1-23.png)<br /><br />
-![](Resources/1-24.png)<br /><br />
+![](Resources/1-23.png)<br />
+![](Resources/1-24.png)<br />
 
 <hr style="border:2px solid blue">
 
