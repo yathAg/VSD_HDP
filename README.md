@@ -306,6 +306,32 @@ Incomplete If statements result in the formation of Latches hence it is importan
 
 ## Chapter 2 - Understanding Constraints and Static Timing Analysis  
 
+**What are constraints?**
 
+A RTL code can be synthesized in multiple ways using the standard cells present. A constraint file guides the synthesizer to select the appropriate library cells to meet the timing and performance requirements.
+
+**What is SDC?**
+
+SDC stands for Synopsys Design Constraints which has become an industry standard for various design tools to specify the design constraints suring synthesis.
+
+**Requirement of constraint files**
+
+During synthesis a constraint file is provided along with the RTL and .lib to help the synthesis tool decide what flavour of the cell to use to optimize the design for performance and area.
+
+![](Resources/2-1.png)<br />
+
+**Static timing analysis**
+
++ Setup Time Requirement (Max Delay) 
+
+This is the requirement required to meet the setup time of a flop and decides the minimum frequency of the system. 
+T<sub>clk</sub> > T<sub>CQ_A</sub>+T<sub>COMBI</sub>+T<sub>SETUP_B</sub>  
+
++ Hold Time Requirement (Min Delay)
+
+This is the requirement to meet the hold time requirement of a flop and decides the maximum frequency of the system.
+T<sub>HOLD_B</sub> < T<sub>CQ_A</sub>+T<sub>COMBI</sub> 
+
+![](Resources/2-2.png)<br />
 
 
