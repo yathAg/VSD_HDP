@@ -192,14 +192,14 @@ To initialize the flop and have them in known state, set and reset signals are u
 
 **Asynchronous and synchronous signals**
 
-asynchronous signals are independent of the clock and the output sigal is changed immediately whereas in synchronous signal it changes on the next clock signal.
+asynchronous signals are independent of the clock and the output signal is changed immediately whereas in synchronous signal it changes on the next clock signal.
 
 ![](Resources/1-10.png)
 
 <hr style="border:2px solid blue">
 
 ### 1.5 Flop Simulation
-<br />
+
 **Asynchronous reset**
 ![](Resources/1-11.png)
 ---
@@ -212,7 +212,9 @@ asynchronous signals are independent of the clock and the output sigal is change
 <hr style="border:2px solid blue">
 
 ### 1.6 Flop Synthesis
-during flop synthesis `dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib` is used to map the library containing the flop standard cells<br /><br />
+
+During flop synthesis `dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib` is used to map the library containing the flop standard cells.
+
 **Asynchronous reset**
 ![](Resources/1-14.png)
 ---
