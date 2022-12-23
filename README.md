@@ -203,12 +203,12 @@ asynchronous signals are independent of the clock and the output signal is chang
 **Asynchronous reset**
 ![](Resources/1-11.png)
 
----
+<hr style="border:1px solid blue">
 
 **Asynchronous set**
 ![](Resources/1-12.png)
 
----
+<hr style="border:1px solid blue">
 
 **Synchronous Reset**
 ![](Resources/1-13.png)
@@ -221,10 +221,14 @@ During flop synthesis `dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.l
 
 **Asynchronous reset**
 ![](Resources/1-14.png)
----
+
+<hr style="border:1px solid blue">
+
 **Asynchronous set**
 ![](Resources/1-15.png)
----
+
+<hr style="border:1px solid blue">
+
 **Synchronous Reset**
 ![](Resources/1-16.png)
 
@@ -232,12 +236,16 @@ During flop synthesis `dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.l
 
 ### 1.7 Optimizations in Synthesis 
 
-**optimization in multipliers**<br />
+**optimization in multipliers**
 ![](Resources/1-17.png)
----
+
+<hr style="border:1px solid blue">
+
 **3 Bit number multiplied by 9**
 ![](Resources/1-18.png)
----
+
+<hr style="border:1px solid blue">
+
 **Optimization in combinational logic**
 Combinational logic can be optimized in 2 ways:-
 1. When a signal in a combinational circuit is constant This is referred to as constant propagation.
@@ -256,11 +264,17 @@ Combinational logic can be optimized in 2 ways:-
 
 `opt_clean -purge` is used before synthesis to optimize the designs<br />
 ![](Resources/1-19.png)<br />
----
+
+<hr style="border:1px solid blue">
+
 ![](Resources/1-20.png)<br />
----
+
+<hr style="border:1px solid blue">
+
 ![](Resources/1-21.png)<br />
----
+
+<hr style="border:1px solid blue">
+
 ![](Resources/1-22.png)<br /><br />
 Make sure to `flatten` designs with multiple submodules before running the optimization<br /><br />
 ![](Resources/1-23.png)<br />
