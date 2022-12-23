@@ -199,13 +199,17 @@ asynchronous signals are independent of the clock and the output signal is chang
 <hr style="border:2px solid blue">
 
 ### 1.5 Flop Simulation
-.
+
 **Asynchronous reset**
 ![](Resources/1-11.png)
+
 ---
+
 **Asynchronous set**
 ![](Resources/1-12.png)
+
 ---
+
 **Synchronous Reset**
 ![](Resources/1-13.png)
 
