@@ -90,7 +90,7 @@ The files used in this section can be cloned from: [https://github.com/kunalg123
 Icarus Verilog or any other simulation program takes a verilog file and its corresponding testbench to produce a .vcd file.<br />
 vcd stands for value change dump and as the name suggests vcd files only track the output when there is a change in the input.
 
-![](Resources/1-1.png)
+![](Resources/1-1.png)<br />
 
 iverilog is run with the following commands to output a.out file. this file can be executed to generate the .vcd file 
 ```
@@ -101,7 +101,7 @@ The vcd file simulation can be seen in gtkwave using
 ```
 gtkwave <file.vcd>
 ```
-![](Resources/1-2.png)
+![](Resources/1-2.png)<br />
 
 <hr style="border:2px solid blue">
 
@@ -114,7 +114,7 @@ These standard cells are described in the .lib file. The design file and the lib
 Yosys is a synthesizer which produces the required rtl netlist, file which can again be verified using iverilog and gtkwave. <br/>
 Since the netlist is true description of the design the same testbench file can be used for the netlist. 
 
-![](Resources/1-4.png)
+![](Resources/1-4.png)<br />
 
 A .lib contains multiple variants of a logic gate as fast and slow cells are required to meet the SETUP and HOLD times respectively.
 
@@ -145,16 +145,20 @@ write_verilog -noattr good_mux_netlist.v
 ```
 
 The output summary is shown as follows
-![](Resources/1-5.png)
+
+![](Resources/1-5.png)<br />
+
 ---
 
 A flow chart containing the used cells and the wires can be seen using the `show` command
-![](Resources/1-6.png)
+
+![](Resources/1-6.png)<br />
+
 ---
 
 The `-noattr` switch generates a clean netlist file
 
-![](Resources/1-7.png)
+![](Resources/1-7.png)<br />
 
 <hr style="border:2px solid blue">
 
@@ -168,10 +172,12 @@ Library name `sky130_fd_sc_hd__tt_025C_1v80`:
 Hierarchical Synthesis considers and instantiates each module described in the design individually. The module may be optimized by the synthesizer using different gates while maintaining the same logic.Usually when a stacked PMOS can be replaced buy circuit with stacked NMOS the circuit will be more optimized.
 
 ![](Resources/1-8.png)
+
 ---
 
 The `flatten` command synthesis the design as described and eliminates the sub modules.
 ![](Resources/1-9.png)
+
 ---
 
 The sub modules can also be synthesized individually this has the following advantages
@@ -201,42 +207,53 @@ asynchronous signals are independent of the clock and the output signal is chang
 ### 1.5 Flop Simulation
 
 **Asynchronous reset**
+
 ![](Resources/1-11.png)
 
-
+---
 **Asynchronous set**
+
 ![](Resources/1-12.png)
 
-
+---
 **Synchronous Reset**
+
 ![](Resources/1-13.png)
 
+<hr style="border:2px solid blue">
 
 ### 1.6 Flop Synthesis
 
 During flop synthesis `dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib` is used to map the library containing the flop standard cells.
 
 **Asynchronous reset**
+
 ![](Resources/1-14.png)
 
-
+---
 **Asynchronous set**
+
 ![](Resources/1-15.png)
 
-
+---
 **Synchronous Reset**
+
 ![](Resources/1-16.png)
 
 <hr style="border:2px solid blue">
 
 ### 1.7 Optimizations in Synthesis 
 
-**optimization in multipliers**<br />
+**optimization in multipliers**
+
 ![](Resources/1-17.png)
 
+---
 **3 Bit number multiplied by 9**
+
 ![](Resources/1-18.png)
 
+---
 **Optimization in combinational logic**
 
 Combinational logic can be optimized in 2 ways:-
@@ -254,25 +271,37 @@ Combinational logic can be optimized in 2 ways:-
 
 ### 1.8 Combinational optimization in yosys
 
-The command `opt_clean -purge` is used before synthesis to optimize the designs<br />
+The command `opt_clean -purge` is used before synthesis to optimize the designs
 
 Example 1
+
 ![](Resources/1-19.png)<br />
+
 ---
 Example 2
+
 ![](Resources/1-20.png)<br />
+
 ---
 Example 3
+
 ![](Resources/1-21.png)<br />
+
 ---
 Example 4
+
 ![](Resources/1-22.png)<br />
+
 ---
-Make sure to `flatten` designs with multiple submodules before running the optimization<br /><br />
+Make sure to `flatten` designs with multiple submodules before running the optimization.
+
 Example 5
+
 ![](Resources/1-23.png)<br />
+
 ---
 Example 6
+
 ![](Resources/1-24.png)<br />
 
 <hr style="border:2px solid blue">
@@ -280,29 +309,42 @@ Example 6
 ### 1.9 Sequential optimization in yosys
 
 Example 1
+
 ![](Resources/1-25.png)
-![](Resources/1-26.png)<br /><br />
+![](Resources/1-26.png)
+
 ---
 Example 2
+
 ![](Resources/1-27.png)
-![](Resources/1-28.png)<br /><br >
+![](Resources/1-28.png)
+
 ---
 Example 3
+
 ![](Resources/1-29.png)
-![](Resources/1-30.png)<br /><br />
+![](Resources/1-30.png)
+
 ---
 Example 4
+
 ![](Resources/1-31.png)
-![](Resources/1-32.png)<br /><br />
+![](Resources/1-32.png)
+
 
 <hr style="border:2px solid blue">
 
 ### 1.10 Unused sequential outputs optimization
 
 Example 1
-![](Resources/1-33.png)<br /><br />
+
+![](Resources/1-33.png)
+
 ---
-![](Resources/1-34.png)<br /><br />
+Example 2
+
+![](Resources/1-34.png)
+
 
 <hr style="border:2px solid blue">
 
@@ -323,22 +365,27 @@ Example 1
 Bad_mux Verilog <br />
 ![](Resources/1-37.png)<br />
 
+---
 Bad_mux simulation<br /> 
 ![](Resources/1-35.png)<br />
 
+---
 Iverilog can perform GLS by priding the RTL files as <br />
 ```iverilog ../lib/verilog_model/primitives.v ../lib/verilog_model/sky130_fd_sc_hd.v bad_mux_net.v tb_bad_mux.v```
 
+---
 Bad_mux synthesis simulation<br />
 ![](Resources/1-36.png)<br />
 
 It is clearly seen that the design simulation and synthesis simulation are different due to ```missing sensitivity list``` in the always block
 
+---
 **blocking Statement mismatch**
 
 Blocking_caveat Verilog and design simulation<br />
 ![](Resources/1-38.png)<br />
 
+---
 RTL simulation <br />
 ![](Resources/1-39.png)<br />
 
@@ -351,16 +398,34 @@ RTL simulation <br />
 **Incomplete If Statements**
 
 Incomplete If statements result in the formation of Latches hence it is important to define all the cases of an if case.
+
+Example 1
+
 ![](Resources/1-41.png)<br />
+
+---
+Example 2
+
 ![](Resources/1-42.png)<br />
 
+---
 **Incomplete Case Statements**
+
 ![](Resources/1-43.png)<br />
+
+---
 **Complete Case Statements**
+
 ![](Resources/1-44.png)<br />
+
+---
 **Partial Case Statements**
+
 ![](Resources/1-45.png)<br />
+
+---
 **Repeated Case Statements**
+
 ![](Resources/1-46.png)<br />
 ![](Resources/1-47.png)<br />
 
