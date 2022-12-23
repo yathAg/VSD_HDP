@@ -4,11 +4,15 @@ This repository elaborates the process of an RTL to GDSII flow using OPENLane. i
 
 This repository contains the detailed theory for all the aforementioned steps and implements them to convert the RTL file for a RISC-V core with memory to the GDSII file for the SKY130 process.
 
+<hr style="border:2px solid blue">
+
 ## File Directory 
     .
     ├── RTL_Design                 # Folder containing the files for all the tutorials.
     ├── Resources                  # Images used in the README.md
     └── README.md                  
+
+<hr style="border:2px solid blue">
 
 ## Index
 + [Tools required during the project](#Tools-required-during-the-project)
@@ -32,9 +36,13 @@ This repository contains the detailed theory for all the aforementioned steps an
     - [](#)
 
 
+<hr style="border:2px solid blue">
+
 ## Tools required during the project
 ### yosys
 ![](Resources/yosys.png)
+
+<hr style="border:2px solid blue">
 
 ### Ngspice
 ngspice is the open-source spice simulator for electric and electronic circuits.<br /><br />
@@ -57,17 +65,26 @@ Please note that to view the simulation graphs of ngspice, xterm is required and
 $ sudo apt-get update
 $ sudo apt-get install xterm
 ```
+
+<hr style="border:2px solid blue">
+
 ### opensta
 ![](Resources/opensta.png)
 ### icarus verilog
 
+<hr style="border:2px solid blue">
+
 ### gtkwave
+
+<hr style="border:2px solid blue">
 
 
 
 ## Chapter 1 - RTL DESIGN USING VERILOG WITH SKY130 TECHNOLOGY
 
 The files used in this section can be cloned from: [https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git](https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git)
+
+<hr style="border:2px solid blue">
 
 ### 1.1 Simulation Using iverilog and gtkwave
 
@@ -87,8 +104,9 @@ gtkwave <file.vcd>
 ```
 ![](Resources/1-2.png)
 
-### 1.2 Logic synthesis using Yosys
+<hr style="border:2px solid blue">
 
+### 1.2 Logic synthesis using Yosys
 Logic synthesis defines converting the behavioral verilog code to an RTL code described using the vendor specific standard cells.<br />
 These standard cells are described in the .lib file. The design file and the lib file are the inputs to the synthesizer tool.
 
@@ -140,6 +158,7 @@ The `-noattr` switch generates a clean netlist file
 
 ![](Resources/1-7.png)
 
+<hr style="border:2px solid blue">
 
 ### 1.3 Understanding the .libs files
 
@@ -159,6 +178,7 @@ The sub modules can also be synthesized individually this has the following adva
 - If the design contains repeated sub modules, they do not need to be synthesizer multiple times
 - Big designs can be broken down to small parts to reduce load on synthesizer 
 
+<hr style="border:2px solid blue">
 
 ### 1.4 Flop Coding 
 
@@ -176,6 +196,8 @@ asynchronous signals are independent of the clock and the output sigal is change
 
 ![](Resources/1-10.png)
 
+<hr style="border:2px solid blue">
+
 ### 1.5 Flop Simulation
 
 **Asynchronous reset**
@@ -185,6 +207,8 @@ asynchronous signals are independent of the clock and the output sigal is change
 **Synchronous Reset**
 ![](Resources/1-13.png)
 
+<hr style="border:2px solid blue">
+
 ### 1.6 Flop Synthesis
 during flop synthesis `dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib` is used to map the library containing the flop standard cells<br /><br />
 **Asynchronous reset**
@@ -193,6 +217,8 @@ during flop synthesis `dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.l
 ![](Resources/1-15.png)
 **Synchronous Reset**
 ![](Resources/1-16.png)
+
+<hr style="border:2px solid blue">
 
 ### 1.7 Optimizations in Synthesis 
 
@@ -214,6 +240,8 @@ Combinational logic can be optimized in 2 ways:-
 - Cloning : When a output of a single flop is shared by 2 or more flops that are placed far apart in the layout, there might be errors due to delays in long interconnects. In such scenario the single flop is cloned and placed close to the driven flops to reduce delays.
 - Re-timing : When the slack time due to combinational logic between flops limits the processing speed, the combinational logic is redistributed between flops to optimize the maximum operating frequency.
 
+<hr style="border:2px solid blue">
+
  ### 1.8 Combinational optimization in yosys
 
 `opt_clean -purge` is used before synthesis to optimize the designs<br /><br />
@@ -227,6 +255,8 @@ Combinational logic can be optimized in 2 ways:-
 Make sure to `flatten` designs with multiple submodules before running the optimization<br /><br />
 ![](Resources/1-23.png)<br /><br />
 ![](Resources/1-24.png)<br /><br />
+
+<hr style="border:2px solid blue">
 
  ### 1.9 Sequential optimization in yosys
 
@@ -242,11 +272,15 @@ Make sure to `flatten` designs with multiple submodules before running the optim
 ![](Resources/1-31.png)
 ![](Resources/1-32.png)<br /><br />
 
+<hr style="border:2px solid blue">
+
  ### 1.10 Unused sequential outputs optimization
 
 ![](Resources/1-33.png)<br /><br />
 ---
 ![](Resources/1-34.png)<br /><br />
+
+<hr style="border:2px solid blue">
 
  ### 1.11 GLS and Simulation mismatch
 
@@ -285,6 +319,8 @@ RTL simulation <br />
 ![](Resources/1-39.png)<br />
 
 >Please make sure to use Non Blocking statements in sequential verilog codes to avoid such errors
+
+<hr style="border:2px solid blue">
 
 ### 1.12 If, case, for loop and for generate synthesis issues
 
@@ -341,13 +377,12 @@ This is the requirement to meet the hold time requirement of a flop.
 
 ![](Resources/2-2.png)<br />
 
-<hr style="border:2px solid blue">
-
 **Parameters affecting Delay**
 
 + Higher inflow of current corresponds to a lower delay
 + Higher Load capacitance (output load) higher the delay.
 
+<hr style="border:2px solid blue">
 ### Timing Arcs
 
 + combinational Cells
@@ -384,8 +419,6 @@ This gives us 3 types of paths:
     - `In2Reg` path constrained by input external delay, Input transition and clock period.
     - Modeling the above 2 paths is referred to as IO delay Modeling and has to be constrained for both max and min delay.
 + ` IO timing Path` - Input to Output ports. 
-
-> IO Paths are undesirable <br /><br />
 
 ![](Resources/2-4.png)<br />
 ---
