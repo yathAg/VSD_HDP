@@ -324,16 +324,74 @@ During synthesis a constraint file is provided along with the RTL and .lib to he
 
 + Setup Time Requirement (Max Delay) 
 
-This is the requirement required to meet the setup time of a flop and decides the minimum frequency of the system. 
+This is the requirement required to meet the setup time of a flop.
 
 `T<sub>clk</sub> > T<sub>CQ_A</sub>+T<sub>COMBI</sub>+T<sub>SETUP_B</sub>`
 
 + Hold Time Requirement (Min Delay)
 
-This is the requirement to meet the hold time requirement of a flop and decides the maximum frequency of the system.
+This is the requirement to meet the hold time requirement of a flop.
 
 `T<sub>HOLD_B</sub> < T<sub>CQ_A</sub>+T<sub>COMBI</sub>` 
 
 ![](Resources/2-2.png)<br />
+
+
+**Parameters affecting Delay**
+
++ A higher inflow of current corresponds to a lower delay
++ Higher Load capacitance (output load) higher the delay.
+
+**Timing Arcs**
+
++ combinational Cells
+All the paths from input to output which leads to a delay.
+
++ Sequential Cell 
+- Delay from clk to Q for DFlop
+- Delay from clk to Q or D to Q for Dlatch
+- Setup and Hold times
+
+![](Resources/2-3.png)<br />
+
+**Understanding timing paths**
+
+There are different paths in a circuit which determine the critical path of a circuit.
+
+The critical path is the path with the highest delay (slowest path) and determines the operating frequency of the circuit.
+
+Starting points for the paths are:
++ Input Ports
++ Clk pins of Registers
+
+End points of a timing path are:
++ Output ports
++ D pin of DFF/DLAT
+
+This gives us 3 types of paths:
++ `Reg2Reg Timing path` 
+    - Clk pin to D pin
+    - Constrained by the clock
++ `IO Timing Path` 
+    - Clk to Output or Input to D 
+    - `Reg2Out` path constrained by external delay, output load and clock period.
+    - `In2Reg` path constrained by input external delay, Input transition and clock period.
+    - Modeling the above 2 paths is referred to as IO delay Modeling and has to be constrained for both max and min delay.
++ ` IO timing Path` - Input to Output ports. 
+
+> IO Ports are undesirable
+
+![](Resources/2-4.png)<br />
+
+**Constraining the design & IO Modeling**
+
+Based on the Clock period the synthesizer decides the maximum possible Combinational delay to meet the STA.
+
++ Practical Input transition period has to be accounted for Input Reg path
+
++ Output load has to be considered for external modules ( might be defined by spec) to meet reg output path.
+
++ Over modeling has to be avoided to prevent tool from using extra large cells, leaky cells or failing to synthesize path.
+
 
 
