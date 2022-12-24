@@ -36,7 +36,10 @@ This repository contains the detailed theory for all the aforementioned steps an
     - [2.1 Static timing analysis](#21-Static-timing-analysis)
     - [2.2 Timing Arcs](#22-Timing-Arcs)
     - [2.3 Understanding timing paths & IO Modeling](#23-Understanding-timing-paths-&-IO-Modeling)
+    - [2.4 Clock Tree Modeling](#24-Clock-Tree-Modeling)
     - [](#)
+    - [](#)
+
    
 <hr style="border:2px solid blue">
 
@@ -527,4 +530,72 @@ Based on the Clock period the synthesizer decides the maximum possible Combinati
 + Over modeling has to be avoided to prevent tool from using extra large cells, leaky cells or failing to synthesize path.
 
 <hr style="border:2px solid blue">
+
+## 2.4 Clock Tree Modeling
+
+Due to the practical floorplaning and clock tree synthesis of the physical design there exist routing delays and not all registers receive the clock at the same time.
+
+Jitter refers to the inherent variations that exist in clock sources due to stochastic effects.
+
+The clock edge does not have a non-zero rise time and arrives in a small window period. ie T<sub>clk</sub> ± Delta
+
+Hence for setup time analysis our equation becomes <br />
+`T<sub>clk</sub>-T<sub>jitter</sub>> T<sub>CQ_A</sub>+T<sub>COMBI</sub>+T<sub>SETUP_B</sub>`
+
+---
+**Clock Skew**
+
+Difference in clock periods due to generated paths during CTS refers to as clock skew and can result in timing failures post clock tree synthesis.<br />
+`T<sub>clk</sub>-T<sub>skew</sub>> T<sub>CQ_A</sub>+T<sub>COMBI</sub>+T<sub>SETUP_B</sub>`
+
+---
+**Factors for clock Modeling**
++ Period
++ Source Latency : Time taken by the clock source to generate clock
++ Clock Network Latency : Time taken by Clock Distribution NW
++ Clock Skew : Clock Path delay mismatches
++ Jitter : Random Variations.
+    - Duty Cycle Jitter
+    - Period jitter
+
+These factors (Skew & Clock Network Latency) have to be accounted for before CTS and Post CTS the only uncertainty in clock is due to Jitter.
+
+<hr style="border:2px solid blue">
+
+## 2.5 Writing SDC files
+
+**Querying Command** : `get_*` 
+
+**Querying the ports**
+
++ `get_ports clk;`  
++ `get_ports *clk*;`    - Return collection of ports whose name contains clk 
++ `get_ports *;`        - Query all ports of the design  
++ `get_ports * -filter "direction==in";`    - filtering based on condition , all ports with direction = in , all in ports
++ `get_ports * -filter "direction==out";`   -  all ports with direction = out  
+
+---
+**Querying the clock**   
+
++ `get_clocks *;`       - all** clocks in the design  
++ `get_clocks *clk*;`   - all clocks with name clk in it  
++ `get_clocks  * -filter "period>10"`  - all clocks with period greater than 10
+
++ `get_attribute [get_clock my_clk] period` - will report the period of the clock  
++ `get_attribute [get_clock my_clk] is_generated` - will report is the clock has the is_generated attribute
++ `report_clocks my_clk` - will list all the parameters of clock  
+
+---
+**Querying the clock** 
+
+![](Resources/2-5.png)<br />
+
+---
+**Creating Clocks**
+
+
+
+## Acknowledgements
+- [Kunal Ghosh](https://github.com/kunalg123)
+- [VLSI System Design](https://www.vlsisystemdesign.com/)
 
