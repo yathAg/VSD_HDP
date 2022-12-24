@@ -465,13 +465,13 @@ During synthesis a constraint file is provided along with the RTL and .lib to he
 
 This is the requirement required to meet the setup time of a flop.
 
-`T<sub>clk</sub> > T<sub>CQ_A</sub>+T<sub>COMBI</sub>+T<sub>SETUP_B</sub>`
+T<sub>clk</sub> > T<sub>CQ_A</sub>+T<sub>COMBI</sub>+T<sub>SETUP_B</sub>
 
 + Hold Time Requirement (Min Delay)
 
 This is the requirement to meet the hold time requirement of a flop.
 
-`T<sub>HOLD_B</sub> < T<sub>CQ_A</sub>+T<sub>COMBI</sub>` 
+T<sub>HOLD_B</sub> < T<sub>CQ_A</sub>+T<sub>COMBI</sub>
 
 ![](Resources/2-2.png)<br />
 
@@ -540,13 +540,13 @@ Jitter refers to the inherent variations that exist in clock sources due to stoc
 The clock edge does not have a non-zero rise time and arrives in a small window period. ie T<sub>clk</sub> ± Delta
 
 Hence for setup time analysis our equation becomes <br />
-`T<sub>clk</sub>-T<sub>jitter</sub>> T<sub>CQ_A</sub>+T<sub>COMBI</sub>+T<sub>SETUP_B</sub>`
+T<sub>clk</sub>-T<sub>jitter</sub>> T<sub>CQ_A</sub>+T<sub>COMBI</sub>+T<sub>SETUP_B</sub>
 
 ---
 **Clock Skew**
 
 Difference in clock periods due to generated paths during CTS refers to as clock skew and can result in timing failures post clock tree synthesis.<br />
-`T<sub>clk</sub>-T<sub>skew</sub>> T<sub>CQ_A</sub>+T<sub>COMBI</sub>+T<sub>SETUP_B</sub>`
+T<sub>clk</sub>-T<sub>skew</sub>> T<sub>CQ_A</sub>+T<sub>COMBI</sub>+T<sub>SETUP_B</sub>
 
 ---
 **Factors for clock Modeling**

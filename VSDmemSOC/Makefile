@@ -5,6 +5,7 @@ INCLUDE_PATH = include
 OUTPUT_PATH = output
 GLS_PATH = gls_model
 
+STA_PATH = $(OUTPUT_PATH)/sta
 COMPILED_TLV_PATH = $(OUTPUT_PATH)/compiled_tlv
 PRE_SYNTH_SIM_PATH = $(OUTPUT_PATH)/pre_synth_sim
 POST_SYNTH_SIM_PATH = $(OUTPUT_PATH)/post_synth_sim
@@ -43,5 +44,12 @@ post_synth_sim:
 synth: 
 	if [ ! -f "$(SYNTH_PATH)/vsdmemsoc.synth.v" ]; then \
 		mkdir -p $(SYNTH_PATH); \
-		yosys yosys.ys;\
+		yosys ./scripts/yosys.ys; \
+	fi
+
+.PHONY: sta 
+sta: 
+	if [ ! -f "$(STA_PATH)/sta.log" ]; then \
+		mkdir -p $(STA_PATH); \
+		sta -exit -threads max ./scripts/sta.conf; \
 	fi
